@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Text;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 
 using UnityEngine;
@@ -331,10 +332,12 @@ namespace OpenAi.Api.V1
         private TModel UnpackResponseObject<TModel>(string content)
             where TModel : AModelV1, new()
         {
-            JsonObject obj = JsonDeserializer.FromJson(content);
+            TModel result = JsonConvert.DeserializeObject<TModel>(content);
+            return result;
+            /*JsonObject obj = JsonDeserializer.FromJson(content);
             TModel res = new TModel();
             res.FromJson(obj);
-            return res;
+            return res;*/
         }
     }
 }

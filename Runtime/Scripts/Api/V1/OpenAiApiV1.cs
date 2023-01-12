@@ -1,6 +1,7 @@
 using System.Text;
 
 using UnityEngine.Networking;
+using UnityEngine;
 
 namespace OpenAi.Api.V1
 {
@@ -45,6 +46,11 @@ namespace OpenAi.Api.V1
         public FilesResourceV1 Files { get; private set; }
 
         /// <summary>
+        /// Completions resource. <see href="https://beta.openai.com/docs/api-reference/create-completion"/> and onwards.
+        /// </summary>
+        public CompletionsResourceV1 Completions { get; private set; }
+
+        /// <summary>
         /// Construct an <see cref="OpenAiApiV1"/> with the provided auth args.
         /// </summary>
         /// <param name="authArgs"></param>
@@ -55,6 +61,7 @@ namespace OpenAi.Api.V1
             Files = new FilesResourceV1(this);
             Classifications = new ClassificationsResourceV1(this);
             Answers = new AnswersResourceV1(this);
+            Completions = new CompletionsResourceV1(this);
         }
 
         /// <inheritdoc />

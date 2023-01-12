@@ -11,6 +11,11 @@ namespace OpenAi.Api.V1
     public class CompletionRequestV1 : AModelV1
     {
         /// <summary>
+        /// The model used to generate completions.
+        /// </summary>
+        public string model;
+
+        /// <summary>
         /// The prompt(s) to generate completions for, encoded as a string, a list of strings, or a list of token lists. Note that<|endoftext|> is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document.
         /// </summary>
         public StringOrArray prompt;
@@ -82,8 +87,11 @@ namespace OpenAi.Api.V1
 
             foreach(JsonObject obj in json.NestedValues)
             {
-                switch (obj.Name) 
+                switch (obj.Name)
                 {
+                    case nameof(model):
+                        model = obj.StringValue;
+                        break;
                     case nameof(prompt):
                         prompt = new StringOrArray();
                         prompt.FromJson(obj);
@@ -140,6 +148,7 @@ namespace OpenAi.Api.V1
             JsonBuilder jb = new JsonBuilder();
 
             jb.StartObject();
+            jb.Add(nameof(model), model);
             jb.Add(nameof(prompt), prompt);
             jb.Add(nameof(max_tokens), max_tokens);
             jb.Add(nameof(temperature), temperature);

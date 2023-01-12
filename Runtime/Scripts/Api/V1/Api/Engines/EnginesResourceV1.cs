@@ -11,7 +11,7 @@ namespace OpenAi.Api.V1
     public class EnginesResourceV1 : AApiResource<OpenAiApiV1>
     {
         /// <inheritdoc />
-        public override string Endpoint => "/engines";
+        public override string Endpoint => "/models";
 
         /// <summary>
         /// Construct Engines resource with parent

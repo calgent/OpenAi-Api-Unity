@@ -51,17 +51,19 @@ namespace OpenAi.Examples
         {
             _output = "Performing completion...";
 
-            ApiResult<CompletionV1> comp = await api.Engines.Engine("davinci").Completions.CreateCompletionAsync(
+            ApiResult<CompletionV1> comp = await api.Completions.CreateCompletionAsync(
                     new CompletionRequestV1()
                     {
-                        prompt = "test",
-                        max_tokens = 8
+                        model = "text-davinci-003",
+                        prompt = _input,
+                        max_tokens = 200,
+                        temperature = 0
                     }
                 );
 
             if (comp.IsSuccess)
             {
-                _output = $"{comp.Result.choices[0].text}";
+                _output = $"{comp.Result.choices[0].text}".Trim();
             }
             else
             {
