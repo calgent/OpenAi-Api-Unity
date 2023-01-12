@@ -32,7 +32,7 @@ namespace OpenAi.Api.V1
         public EngineResourceV1(EnginesResourceV1 parent, string engineId) : base(parent)
         {
             _endpoint = $"/{engineId}";
-            Completions = new CompletionsResourceV1(this);
+            Completions = new CompletionsResourceV1((OpenAiApiV1)ParentResource.ParentResource);
             Search = new SearchResourceV1(this);
         }
 
