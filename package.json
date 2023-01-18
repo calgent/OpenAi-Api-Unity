@@ -1,2 +1,2 @@
-{"name": "com.openai.api.unity", "version": "0.3.0", "displayName": "OpenAi Api Unity", "description": "An OpenAi Api for the Unity Engine", "unity": "2021.3", "unityRelease": "16f1", "dependencies": {
+{"name": "com.openai.api.unity", "version": "0.3.1", "displayName": "OpenAi Api Unity", "description": "An OpenAi Api for the Unity Engine", "unity": "2021.3", "unityRelease": "16f1", "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.0.2"}, "keywords": ["OpenAi"], "author": {"name": "ChiaYu Tsai", "email": "jimisdaisy@gmail.com", "url": "https://github.com/calgent/OpenAi-Api-Unity"}}

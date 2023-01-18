@@ -51,8 +51,8 @@ namespace OpenAi.Unity.V1
 
         private SAuthArgsV1 ResolveLocalFileAuthArgs()
         {
-            string userPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string authPath = $"{userPath}/.openai/auth.json";
+            //string userPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string authPath = $"{Application.dataPath}/.openai/auth.json";
             FileInfo fi = new FileInfo(authPath);
 
             if (!fi.Exists) throw new OpenAiApiException($"No authentication file exists at {authPath}", this);
